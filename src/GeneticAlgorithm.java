@@ -90,8 +90,7 @@ public class GeneticAlgorithm {
 			
 			int x = (int) (Math.random() * ((1000 - 1) + 1)) + 1;
 			cloudlet[i] = new Cloudlet(i, (length + x), pesNumber, fileSize,
-											outputSize, utilizationModel, 
-											utilizationModel, utilizationModel);
+								outputSize, utilizationModel, utilizationModel, utilizationModel);
 			
 			// Setting the owner of these Cloudlets
 			cloudlet[i].setUserId(userId);
@@ -163,7 +162,7 @@ public class GeneticAlgorithm {
 			 * INITIALISE POPULATION
 			 */
 			ArrayList<Chromosomes> initialPopulation = gf.initialisePopulation(numCloudlets, numVms, 
-																				sortedVmList, sortedCloudletList);
+											sortedVmList, sortedCloudletList);
 			
 			int firstFitIndex = 0;		// denotes the most fit chromosome in the population
 			int secondFitIndex = 0;		// denotes the second most fit chromosome in the population
@@ -174,8 +173,7 @@ public class GeneticAlgorithm {
 			 * INITIAL FITNESS CHECK
 			 */
 			double[] parameters = gf.calculateFitness(initialPopulation, firstFitIndex, 
-														secondFitIndex, time, 
-														numCloudlets, populationSize);
+										secondFitIndex, time, numCloudlets, populationSize);
 			firstFitIndex = (int)parameters[0];	
 			secondFitIndex = (int)parameters[1];
 			time = parameters[2];
@@ -190,7 +188,7 @@ public class GeneticAlgorithm {
 				 * SELECTION AND CROSSOVER
 				 */
 				gf.selectionAndCrossOver(initialPopulation, firstFitIndex, 
-											secondFitIndex, numCloudlets);
+										secondFitIndex, numCloudlets);
 			    
 				double rangeMin = 0.0f;
 			    double rangeMax = 1.0f;
@@ -202,14 +200,13 @@ public class GeneticAlgorithm {
 				 */
 				if(mutProb < 0.5)
 					gf.mutation(r, initialPopulation, populationSize, 
-								sortedVmList, numCloudlets);
+									sortedVmList, numCloudlets);
 				
 				/*
 				 * UPDATE FITNESS CHECK
 				 */
 				parameters = gf.calculateFitness(initialPopulation, firstFitIndex, 
-													secondFitIndex, time, 
-													numCloudlets, populationSize);
+										secondFitIndex, time, numCloudlets, populationSize);
 				
 				firstFitIndex = (int)parameters[0];	
 				secondFitIndex = (int)parameters[1];
