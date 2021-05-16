@@ -83,8 +83,8 @@ public class GADatacenterCreator {
 		LinkedList<Storage> storageList = new LinkedList<Storage>(); 
 
 		DatacenterCharacteristics characteristics = new DatacenterCharacteristics(
-													arch, os, vmm, hostList, time_zone, cost, costPerMem,
-													costPerStorage, costPerBw);
+										arch, os, vmm, hostList, time_zone, cost, costPerMem,
+										costPerStorage, costPerBw);
 
 		// Create a PowerDatacenter object.
 		Datacenter datacenter = null;
