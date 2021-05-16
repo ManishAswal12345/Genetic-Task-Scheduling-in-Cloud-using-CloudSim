@@ -28,7 +28,7 @@ public class GeneticFunctions {
 	 * @return an ArrayList of Chromosomes
 	 */
 	public ArrayList<Chromosomes> initialisePopulation(int numCloudlets, int numVms, 
-																ArrayList<Vm> sortedVmList, List<Cloudlet> sortedCloudletList) {
+								ArrayList<Vm> sortedVmList, List<Cloudlet> sortedCloudletList) {
 		
 		ArrayList<Chromosomes> initialPopulation = new ArrayList<Chromosomes>();
 		
@@ -66,7 +66,7 @@ public class GeneticFunctions {
 	 * @return an array of parameters
 	 */
 	public double[] calculateFitness(ArrayList<Chromosomes> initialPopulation, int firstFitIndex, int secondFitIndex,
-											double time, int numCloudlets, int populationSize) {
+							double time, int numCloudlets, int populationSize) {
 		
 		for(int i = 0; i < populationSize; i++){
 			
@@ -106,7 +106,7 @@ public class GeneticFunctions {
 	 * @param numCloudlets - number of cloudlets
 	 */
 	public void selectionAndCrossOver(ArrayList<Chromosomes> initialPopulation, int firstFitIndex, int secondFitIndex,
-												int numCloudlets) {
+										int numCloudlets) {
 		// SELECTION
 		int index1,index2;			
 		index1 = firstFitIndex;
@@ -151,7 +151,7 @@ public class GeneticFunctions {
 	 * @param numCloudlets - number of cloudlets
 	 */
 	public void mutation(Random rand, ArrayList<Chromosomes> initialPopulation, int populationSize,
-									ArrayList<Vm> sortedVmList, int numCloudlets) {
+						ArrayList<Vm> sortedVmList, int numCloudlets) {
 		
 		int m;
 		m = rand.nextInt(populationSize) % populationSize;
